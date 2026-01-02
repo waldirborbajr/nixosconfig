@@ -20,5 +20,6 @@
  #   ./zathura.nix
     ./zsh.nix
     ./yazi.nix
+#    ./wezterm/wezterm.nix
   ];
 }
