@@ -1,5 +1,6 @@
 {
   imports = [
+    ./nixpkgs.nix
 #    ./audio.nix
 #    ./bluetooth.nix
 #    ./boot.nix
@@ -10,7 +11,6 @@
 #    ./mime.nix
 #    ./net.nix
 #    ./nh.nix
-    ./nix.nix
     ./timezone.nix
     ./user.nix
 #    ./zram.nix
