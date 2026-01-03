@@ -1,6 +1,7 @@
 {
   imports = [
     ./nixpkgs.nix
+    ./locales.nix
 #    ./audio.nix
 #    ./bluetooth.nix
 #    ./boot.nix
