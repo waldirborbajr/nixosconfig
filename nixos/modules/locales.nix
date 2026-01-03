@@ -1,4 +1,5 @@
-i18n.defaultLocale = "pt_BR.UTF-8";
+{
+  i18n.defaultLocale = "pt_BR.UTF-8";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "pt_BR.UTF-8";
@@ -19,3 +20,4 @@ i18n.defaultLocale = "pt_BR.UTF-8";
 
   # Layout de teclado no X11/Wayland
   services.xserver.xkb.layout = "br";
+}
