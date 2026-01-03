@@ -17,5 +17,12 @@
 
   networking.hostName = hostname;
 
+  networking.wireless.enable = true;
+  networking.wireless.networks = {
+    "ALHN-D200" = {
+      psk = "t4S7VEqp";
+    };
+  };
+
   system.stateVersion = stateVersion;
 }
