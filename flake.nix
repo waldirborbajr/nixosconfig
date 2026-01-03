@@ -2,7 +2,10 @@
   description = "My system configuration";
 
   inputs = {
+    # Unstable como base do sistema
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+    # Stable para pacotes específicos
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
     home-manager = {
@@ -22,6 +25,12 @@
     user = "borba";
     homeStateVersion = "25.11";
 
+    # Import explícito do nixpkgs stable
+    stablePkgs = import inputs.nixpkgs-stable {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
     hosts = [
       { hostname = "slim3"; stateVersion = "24.05"; }
       { hostname = "caveos-dell"; stateVersion = "25.11"; }
@@ -32,7 +41,13 @@
         inherit system;
 
         specialArgs = {
-          inherit inputs hostname stateVersion user homeStateVersion;
+          inherit
+            inputs
+            hostname
+            stateVersion
+            user
+            homeStateVersion
+            stablePkgs;
         };
 
         modules = [
@@ -46,7 +61,11 @@
             home-manager.useUserPackages = true;
 
             home-manager.extraSpecialArgs = {
-              inherit inputs user homeStateVersion;
+              inherit
+                inputs
+                user
+                homeStateVersion
+                stablePkgs;
             };
 
             home-manager.users.${user} =
@@ -71,7 +90,11 @@
         pkgs = nixpkgs.legacyPackages.${system};
 
         extraSpecialArgs = {
-          inherit inputs user homeStateVersion;
+          inherit
+            inputs
+            user
+            homeStateVersion
+            stablePkgs;
         };
 
         modules = [
